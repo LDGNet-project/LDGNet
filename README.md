@@ -1,8 +1,9 @@
 ---
-
-# LDGNet-project
-
-**LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection** – the official PyTorch implementation. This framework introduces an innovative multimodal debate mechanism using large language models (LLMs) to leverage open-world knowledge for enhanced sarcasm detection in multimodal datasets.
+project_name: LDGNet-Project
+description: >
+  LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection – Official PyTorch Implementation. 
+  This framework introduces an innovative multimodal debate mechanism, leveraging large language models (LLMs) 
+  to utilize open-world knowledge for enhanced sarcasm detection in multimodal datasets.
 
 ---
 
@@ -20,17 +21,17 @@ pip install -r requirements.txt
 
 ## Data Preparation
 
-You can download and prepare the datasets from the following sources:
+Download and prepare the datasets from the following sources:
 
-- **HFM Dataset**: A popular dataset for multimodal sarcasm detection, available on [GitHub](https://data.mendeley.com/datasets/h4ymvy9g8j/1).
-- **DMSD-CL Dataset**: Designed to assess model generalization, more details can be found in the [paper](https://arxiv.org/html/2312.10493v2).
-- **Data Processing Framework**: Inspired by HKEmodel’s preprocessing approach, accessible on [GitHub](https://github.com/less-and-less-bugs/HKEmodel).
+- **HFM Dataset**: A widely used dataset for multimodal sarcasm detection, available on [Mendeley Data](https://data.mendeley.com/datasets/h4ymvy9g8j/1).
+- **DMSD-CL Dataset**: Designed to evaluate model generalization, more details can be found in the [paper](https://arxiv.org/html/2312.10493v2).
+- **Data Processing Framework**: Inspired by HKEmodel’s preprocessing approach, available on [GitHub](https://github.com/less-and-less-bugs/HKEmodel).
 
 ---
 
 ## Training
 
-Use the following scripts to train the LDGNet model. Choose the appropriate configuration for your setup.
+Use the following scripts to train the LDGNet model. Select the configuration that fits your setup.
 
 ### Configuration 1: ResNet and BERT
 ```bash
@@ -95,10 +96,10 @@ CUDA_VISIBLE_DEVICES=0 python run.py with data_root=$DATA \
 
 ## Key Features
 
-- **Innovative Approach**: Simulates debates among LLMs to capture conflicting sarcastic rationales.
-- **Enhanced Multimodal Understanding**: Combines textual and visual information to improve sarcasm detection.
-- **Open-World Knowledge Utilization**: Integrates contextual knowledge from diverse domains for robust sarcasm interpretation.
-- **Comprehensive Framework**: Includes a debate module for generating sentiment rationales and a judge module for nuanced sentiment classification.
+- **Innovative Approach**: Simulates debates among LLMs to identify conflicting sarcastic rationales.
+- **Enhanced Multimodal Understanding**: Combines textual and visual information for improved sarcasm detection.
+- **Open-World Knowledge Utilization**: Integrates contextual knowledge from diverse domains to ensure robust sarcasm interpretation.
+- **Comprehensive Framework**: Includes a debate module to generate sentiment rationales and a judge module for nuanced sentiment classification.
 
 ---
 
@@ -120,6 +121,6 @@ If you use this framework in your research, please cite:
 
 ## Acknowledgements
 
-This project builds on the strengths of existing multimodal frameworks and pushes the boundaries of sarcasm detection using a unique debate-based methodology.
+This project builds on the strengths of existing multimodal frameworks and advances sarcasm detection using a unique debate-based methodology.
 
 ---
