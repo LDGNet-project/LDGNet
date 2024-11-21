@@ -1,84 +1,106 @@
-# ExplainHM
-Official PyTorch implementation for the paper - **Towards Explainable Harmful Meme Detection through Multimodal Debate between Large Language Models**.
+---
+# LDGNet-project
 
-(**WWW 2024**: The ACM Web Conference 2024, May 2024, Singapore.) [[`paper`](https://arxiv.org/pdf/2401.13298.pdf)]
-
+Official PyTorch implementation of **LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection**. This novel framework introduces a multimodal debate mechanism between large language models (LLMs) to leverage open-world knowledge and enhance sarcasm detection in multimodal datasets.
 
 ## Install
 
+To set up the environment, follow these steps:
+
 ```bash
-conda create -n meme python=3.8
-conda activate meme
+conda create -n sarcasm python=3.8
+conda activate sarcasm
 pip install -r requirements.txt
 ```
 
 ## Data
 
-Please refer to [data](https://github.com/HKBUNLP/ExplainHM-WWW2024/tree/main/data).
+You can access and prepare the datasets from the [Data Repository](link-to-dataset).
 
 ## Training
-```使用bert和resnet进行训练```
-cd /root/main
-export DATA="/root/autodl-tmp/HFM"
-export LOG="/root/autodl-tmp/ours"
+
+To train the LDGNet model, use the following scripts tailored for different configurations:
+
+**Configuration 1: Using ResNet and BERT**  
+```bash
+cd /path/to/main
+export DATA="/path/to/dataset"
+export LOG="/path/to/save/logs"
 
 CUDA_VISIBLE_DEVICES=0,1 python run.py with data_root=$DATA \
-    num_gpus=2 num_nodes=1 task_train per_gpu_batchsize=4 batch_size=16 \
+    num_gpus=2 num_nodes=1 per_gpu_batchsize=4 batch_size=16 \
     image_size=224 vit_randaug max_text_len=512 \
-    tokenizer="google" vit="clip" seed=42 \
+    tokenizer="bert-base" vit="resnet" seed=42 \
     log_dir=$LOG precision=32 max_epoch=15 learning_rate=1e-4
-``` ```
-OR
-```使用google-flan和clip进行训练```
-export DATA="path/twitter"
-export LOG="path/to/save/ckpts/name"
+```
+
+**Configuration 2: Using CLIP and T5**  
+```bash
+export DATA="/path/to/twitter/dataset"
+export LOG="/path/to/checkpoints"
 
 rm -rf $LOG
 mkdir $LOG
 
 CUDA_VISIBLE_DEVICES=0 python run.py with data_root=$DATA \
-    num_gpus=1 num_nodes=1 task_train per_gpu_batchsize=6 batch_size=6 \
-    clip32_base224 text_t5_base image_size=224 vit_randaug max_text_len=512 \
-    seed=42 \
+    num_gpus=1 num_nodes=1 per_gpu_batchsize=6 batch_size=6 \
+    clip32_base224 text_t5_base image_size=224 vit_randaug \
+    max_text_len=512 seed=42 \
     log_dir=$LOG precision=32 max_epoch=5 learning_rate=1.5e-4
-``` ```
+```
+
 ## Inference
-```使用bert和resnet进行测试```
-cd /root/main
-export DATA="/root/autodl-tmp/HFM"
-export LOG="path/to/log/folder"
+
+For evaluation, use the following commands:
+
+**Configuration 1: Testing ResNet and BERT**  
+```bash
+cd /path/to/main
+export DATA="/path/to/test/data"
+export LOG="/path/to/logs"
 
 CUDA_VISIBLE_DEVICES=0,1 python run.py with data_root=$DATA \
-    num_gpus=2 num_nodes=1 task_train per_gpu_batchsize=4 batch_size=16 test_only=True \
-    image_size=224 vit_randaug \
-    tokenizer="google" vit="clip" \
-    log_dir=$LOG precision=32 \
-    max_text_len=512 load_path="/root/autodl-tmp/ours/MEME_seed42_from_/version_22/checkpoints/epoch=1-step=4909.ckpt"
-``` ```
-OR
-```使用google-flan和clip进行测试 ```
-export DATA="path/to/data/folder"
-export LOG="path/to/log/folder"
+    num_gpus=2 num_nodes=1 per_gpu_batchsize=4 batch_size=16 test_only=True \
+    image_size=224 vit_randaug tokenizer="bert-base" vit="resnet" \
+    log_dir=$LOG precision=32 max_text_len=512 \
+    load_path="/path/to/checkpoints/model.ckpt"
+```
+
+**Configuration 2: Testing CLIP and T5**  
+```bash
+export DATA="/path/to/test/data"
+export LOG="/path/to/logs"
 
 CUDA_VISIBLE_DEVICES=0 python run.py with data_root=$DATA \
-    num_gpus=1 num_nodes=1 task_train per_gpu_batchsize=6 batch_size=6 test_only=True \
+    num_gpus=1 num_nodes=1 per_gpu_batchsize=6 batch_size=6 test_only=True \
     clip32_base224 text_t5_base image_size=224 vit_randaug \
-    log_dir=$LOG precision=32 \
-    max_text_len=512 load_path="path/to/save/ckpts/name/MEME_seed41_from_/version_0/checkpoints/epoch=1-step=1005.ckpt"
-``` ```
+    log_dir=$LOG precision=32 max_text_len=512 \
+    load_path="/path/to/checkpoints/model.ckpt"
+```
+
+## Highlights
+
+- **Innovative Approach**: Simulates debates among LLMs to capture conflicting sarcastic rationales.
+- **Enhanced Multimodal Understanding**: Combines textual and visual clues effectively for sarcasm detection.
+- **Open-World Knowledge Utilization**: Integrates contextual information from diverse domains for robust sarcasm interpretation.
+- **Comprehensive Framework**: Includes a debate module for generating sentiment rationales and a judge module for nuanced sentiment classification.
+
 ## Citation
 
+If you use this framework in your research, please cite:
+
 ```
-@inproceedings{lin2024explainable,
-    title={Towards Explainable Harmful Meme Detection through Multimodal Debate between Large Language Models},
-    author={Hongzhan Lin and Ziyang Luo and Wei Gao and Jing Ma and Bo Wang and Ruichao Yang},
-    booktitle={The ACM Web Conference 2024},
-    year={2024},
-    address={Singapore},
+@misc{zhou2024ldgnet,
+    title={LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection},
+    url={https://github.com/LDGNet-project/LDGNet},
+    author={Zhou, Hengyang and Yan, Jinwu and Chen, Yaqing and Hong, Rongman and Zuo, Wenbo and Jin, Keyan},
+    month={November},
+    year={2024}
 }
 ```
 
 ## Acknowledgements
 
-The code is based on [ViLT](https://github.com/dandelin/ViLT) and [METER](https://github.com/zdou0830/METER/tree/main).
+This work builds on the strengths of leading multimodal frameworks and pushes the boundaries of sarcasm detection with unique debate-based methodologies.
 
+---
