@@ -1,3 +1,5 @@
+---
+
 # LDGNet-project
 
 **LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection** – the official PyTorch implementation. This framework introduces an innovative multimodal debate mechanism using large language models (LLMs) to leverage open-world knowledge for enhanced sarcasm detection in multimodal datasets.
@@ -18,7 +20,11 @@ pip install -r requirements.txt
 
 ## Data Preparation
 
-You can download and prepare the datasets from the [Data Repository](link-to-dataset).
+You can download and prepare the datasets from the following sources:
+
+- **HFM Dataset**: A popular dataset for multimodal sarcasm detection, available on [GitHub](https://data.mendeley.com/datasets/h4ymvy9g8j/1).
+- **DMSD-CL Dataset**: Designed to assess model generalization, more details can be found in the [paper](https://arxiv.org/html/2312.10493v2).
+- **Data Processing Framework**: Inspired by HKEmodel’s preprocessing approach, accessible on [GitHub](https://github.com/less-and-less-bugs/HKEmodel).
 
 ---
 
