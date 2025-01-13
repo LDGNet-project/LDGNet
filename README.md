@@ -4,7 +4,7 @@ description: >
   LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection – Official PyTorch Implementation. 
   This framework introduces an innovative multimodal debate mechanism, leveraging large language models (LLMs) 
   to utilize open-world knowledge for enhanced sarcasm detection in multimodal datasets.
-
+  If you have any question, don't hesitate to get in touch with us: 82647084@qq.com.
 ---
 
 ## Installation
