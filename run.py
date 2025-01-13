@@ -15,6 +15,8 @@ import resource
 rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
 
 
+# resource.setrlimit(resource.RLIMIT_NOFILE, (20480, rlimit[1]))
+
 @ex.automain
 def main(_config):
     _config = copy.deepcopy(_config)

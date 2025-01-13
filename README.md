@@ -112,7 +112,7 @@ If you use this framework in your research, please cite:
     title={LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection},
     url={https://github.com/LDGNet-project/LDGNet},
     author={Zhou, Hengyang and Yan, Jinwu and Chen, Yaqing and Hong, Rongman and Zuo, Wenbo and Jin, Keyan},
-    month={November},
+    publisher={ICASSP},
     year={2024}
 }
 ```
