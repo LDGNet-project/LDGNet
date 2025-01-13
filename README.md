@@ -1,6 +1,8 @@
+
+
 ---
-project_name: LDGNet-Project
-description: >
+## LDGNet-Project
+
   LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection – Official PyTorch Implementation. 
   Thank you for your interest in our paper.
   If you have any questions, don't hesitate to get in touch with us: 82647084@qq.com.
