@@ -20,7 +20,7 @@ class ImageEncoder(nn.Module):
         self.input_dim = input_dim
         self.inter_dim = inter_dim
         self.output_dim = output_dim
-`1
+
         self.fc1 = nn.Linear(self.input_dim, self.inter_dim)
         self.fc2 = nn.Linear(self.inter_dim, self.output_dim)
         self.fc3 = nn.Linear(self.output_dim, 1)
@@ -43,11 +43,10 @@ class ImageEncoder(nn.Module):
             x (Tensor): Processed bounding box features. Tensor of shape (N,K,output_dim), K=49
             pv: (N,K) Tensor, the importance of each visual object of image
             """
-        # print(x.shape)
-        # return self.vit(x)
+
         if len(x.shape)==4:
             x = self.vit(x)[:, :-1, :]
-        # x shape (N,K,output_dim)
+
         x = self.relu1(self.fc2(self.relu1(self.fc1(x))))
         x = self.norm(x)
 
