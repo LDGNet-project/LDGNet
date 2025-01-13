@@ -24,7 +24,7 @@ Download and prepare the datasets from the following sources:
 
 - **HFM Dataset**: A widely used dataset for multimodal sarcasm detection, available on [Mendeley Data](https://data.mendeley.com/datasets/h4ymvy9g8j/1).
 - **DMSD-CL Dataset**: Designed to evaluate model generalization, more details can be found in the [paper](https://arxiv.org/html/2312.10493v2).
-- **Data Processing Framework**: Inspired by HKEmodel’s preprocessing approach, available on [GitHub](https://github.com/less-and-less-bugs/HKEmodel).
+- **HFM Dataset Processing**: Followed by HKEmodel’s preprocessing approach, available on [GitHub](https://github.com/less-and-less-bugs/HKEmodel).
 
 ---
 
