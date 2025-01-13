@@ -2,9 +2,8 @@
 project_name: LDGNet-Project
 description: >
   LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection – Official PyTorch Implementation. 
-  This framework introduces an innovative multimodal debate mechanism, leveraging large language models (LLMs) 
-  to utilize open-world knowledge for enhanced sarcasm detection in multimodal datasets.
-
+  Thank you for your interest in our paper.
+  If you have any questions, don't hesitate to get in touch with us: 82647084@qq.com.
 ---
 
 ## Installation
@@ -55,7 +54,7 @@ rm -rf $LOG
 mkdir $LOG
 
 CUDA_VISIBLE_DEVICES=0 python run.py with data_root=$DATA \
-    num_gpus=1 num_nodes=1 per_gpu_batchsize=6 batch_size=6 \
+    num_gpus=1 num_nodes=1 per_gpu_batchsize=6 batch_size=16 \
     clip32_base224 text_t5_base image_size=224 vit_randaug \
     max_text_len=512 seed=42 \
     log_dir=$LOG precision=32 max_epoch=5 learning_rate=1.5e-4
@@ -86,22 +85,12 @@ export DATA="/path/to/test/data"
 export LOG="/path/to/logs"
 
 CUDA_VISIBLE_DEVICES=0 python run.py with data_root=$DATA \
-    num_gpus=1 num_nodes=1 per_gpu_batchsize=6 batch_size=6 test_only=True \
+    num_gpus=1 num_nodes=1 per_gpu_batchsize=6 batch_size=16 test_only=True \
     clip32_base224 text_t5_base image_size=224 vit_randaug \
     log_dir=$LOG precision=32 max_text_len=512 \
     load_path="/path/to/checkpoints/model.ckpt"
 ```
 
----
-
-## Key Features
-
-- **Innovative Approach**: Simulates debates among LLMs to identify conflicting sarcastic rationales.
-- **Enhanced Multimodal Understanding**: Combines textual and visual information for improved sarcasm detection.
-- **Open-World Knowledge Utilization**: Integrates contextual knowledge from diverse domains to ensure robust sarcasm interpretation.
-- **Comprehensive Framework**: Includes a debate module to generate sentiment rationales and a judge module for nuanced sentiment classification.
-
----
 
 ## Citation
 
@@ -112,8 +101,8 @@ If you use this framework in your research, please cite:
     title={LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection},
     url={https://github.com/LDGNet-project/LDGNet},
     author={Zhou, Hengyang and Yan, Jinwu and Chen, Yaqing and Hong, Rongman and Zuo, Wenbo and Jin, Keyan},
-    month={November},
-    year={2024}
+    publisher={ICASSP},
+    year={2025}
 }
 ```
 
