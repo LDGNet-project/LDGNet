@@ -100,13 +100,17 @@ CUDA_VISIBLE_DEVICES=0 python run.py with data_root=$DATA \
 If you use this framework in your research, please cite:
 
 ```bibtex
-@misc{zhou2024ldgnet,
-    title={LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection},
-    url={https://github.com/LDGNet-project/LDGNet},
-    author={Zhou, Hengyang and Yan, Jinwu and Chen, Yaqing and Hong, Rongman and Zuo, Wenbo and Jin, Keyan},
-    publisher={ICASSP},
-    year={2025}
-}
+@INPROCEEDINGS{10890463,
+  author={Zhou, Hengyang and Yan, Jinwu and Chen, Yaqing and Hong, Rongman and Zuo, Wenbo and Jin, Keyan},
+  booktitle={ICASSP 2025 - 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+  title={LDGNet: LLMs Debate-Guided Network for Multimodal Sarcasm Detection}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-5},
+  keywords={Measurement;Knowledge engineering;Accuracy;Large language models;Buildings;Signal processing;Acoustics;History;Speech processing;Context modeling;Multimodal sarcasm detection;multimodal debate;LLMs},
+  doi={10.1109/ICASSP49660.2025.10890463}}
+
 ```
 
 ---
